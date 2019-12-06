@@ -18,12 +18,13 @@
         <!-- VueJS usa chaves duplas -->
         <h1>{{header}}</h1>
         <p>
-            {{text}}
+            Here will appear the text that you write -> {{text}} <br />
+            {{getFromMethod()}}
         </p>
     </div>
     <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
     <script src="https://unpkg.com/vue"></script>
-    <script>
+    <script type="text/javascript">
         new Vue({   // intancia do Vue 
             el: '#vueApp',   // controlará div com o seletor #vueApp
             data: {          // dados doo componente selecionado 
@@ -33,6 +34,9 @@
             methods: {   // todos os métodos do componente selecionado 
                 getText(evt) {   // pegar o evento chamado pelo imput 
                     this.text = evt.target.value;
+                },
+                getFromMethod() {
+                    return 'This comes from a method'
                 }
             }
         })
