@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="vueApp">
+        <!-- Adicionando ouvidor Vue -->
+        <!-- v-on:input é o listener para inputs, ou seja ouve novas teclas -->
+        <!-- funciona como no html javascript normal -->
+        <!-- ou seja, onclick, onmousemove, onmouveover funcionam da mesma forma -->
+        <input type="text" v-on:input="getText">
+        <!-- VueJS usa chaves duplas -->
+        <h1>{{header}}</h1>
+        <p>
+            {{text}}
+        </p>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({   // intancia do Vue 
+            el: '#vueApp',   // controlará div com o seletor #vueApp
+            data: {          // dados doo componente selecionado 
+                header: 'Here will appear the text that you write in the input',
+                text: ' '
+            },
+            methods: {   // todos os métodos do componente selecionado 
+                getText(evt) {   // pegar o evento chamado pelo imput 
+                    this.text = evt.target.value;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
