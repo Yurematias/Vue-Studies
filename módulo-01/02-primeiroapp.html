@@ -33,6 +33,8 @@
             },
             methods: {   // todos os métodos do componente selecionado 
                 getText(evt) {   // pegar o evento chamado pelo imput 
+                    // this no Vue referencia o componente data, diferente do JavaScript 
+                    // que neste caso referenciaria o objeto methods
                     this.text = evt.target.value;
                 },
                 getFromMethod() {
