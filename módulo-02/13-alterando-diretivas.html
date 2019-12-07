@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="vueApp">
+        <!-- o exemplo abaixo não funciona -->
+        <!-- <a href="{{link}}">SmartSilo página</a>  -->
+        <!-- para funcionar corretamente é preciso usar a diretiva v-bind -->
+        <!-- a v-bind é um atributo a ser usado pelo vue -->
+        <!-- duas formas de referenciar um atributo do Vue para o texto -->
+        <!-- <a v-bind:href="link">{{linkName}}</a> -->
+        <!-- v-text é um atributo para colocar um texto dentro da tag referenciando o atributo VueJS -->
+        <a v-bind:href="link" v-text="linkName"></a>
+        <button v-on:click="changeDirective">Mudar link</button>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({   // intancia do Vue 
+            el: '#vueApp',
+            data: {
+                linkName: 'SmartSilo',
+                link: 'http://smartsilo.netlify.com'
+            },
+            methods: {
+                changeDirective() {
+                    if (this.linkName == 'SmartSilo') {
+                        this.linkName = 'Curriculum';
+                        this.link = 'http://yurematias.github.io/curriculum-vitae'
+                    } else {
+                        this.linkName = 'SmartSilo';
+                        this.link = 'http://smartsilo.netlify.com'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
