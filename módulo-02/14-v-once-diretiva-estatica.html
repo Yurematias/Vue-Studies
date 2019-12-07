@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- para desabilitarmos novas renderizações em um atributo do Vue -->
+        <!-- usamos o v-once, sem ele, neste exemplo abaixo o nome completo será impresso 2 vezes -->
+        <!-- com ele o método getName não conseguirá alterar a propriedade do elemento, no entanto -->
+        <!-- só alterará dele próprio -->
+        <h1 v-once v-text="name"></h1>
+        <h1 v-text="getName()"></h1>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Yure'
+            },
+            methods: {
+                getName() {
+                    this.name = 'Yure Matias';
+                    return this.name;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
