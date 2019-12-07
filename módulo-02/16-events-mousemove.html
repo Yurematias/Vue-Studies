@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: blue;
+            width: 100%;
+            height: 400px;
+            text-align: center;
+        }
+
+        .msg {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="box" v-on:mousemove="changeCordenates">
+            <div class="msg">See the cordenates {{cordenates}}</div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                cordenates: 0,
+            },
+            methods: {
+                // o objeto event é recebido em todo evento de html 
+                // isso é do js padrão
+                // no mousemove é possível ver as cordenadas do mouse 
+                changeCordenates(event) {
+                    this.cordenates = `X: ${event.clientX}, Y ${event.clientY}`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
