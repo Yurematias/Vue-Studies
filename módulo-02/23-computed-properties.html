@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- computed properties servem para evitar que propriedades fiquem muito grandes -->
+        <!-- para deixar as propriedades do Vue bem declarativas -->
+        <!-- e para evitar repetição de código existem as computed properties -->
+
+        <!--  o exemplo abaixo fica muito grande, quebrando a declaratividade do Vue -->
+        <h1>{{ nome.split('').reverse().join('') }}</h1>
+        <!-- é um caso ideal para computed properties  -->
+        <!-- computed properties são métodos, mas não precisamos do () -->
+        <!-- são chamadas como se fosse atributos comuns -->
+        <h1>{{ nomeInvertido}}</h1>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Yure Matias'
+            },
+            computed: {
+                // computed properties devem ser sincronas 
+                // e retornar obrigatoriamente alguma coisa
+                nomeInvertido() {
+                    return this.nome.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
