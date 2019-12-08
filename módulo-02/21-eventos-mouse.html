@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- colocando o prevent depois do right no click retira o comportamento padrão que é abrir a caixa de menu ao lado -->
+        <button v-on:click="showMouseButton" v-on:click.middle="showMouseButton"
+            v-on:click.right.prevent="showMouseButton">
+            Tap Here
+        </button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            methods: {
+                showMouseButton(evt) {
+                    switch (evt.button) {
+                        case 0: console.log('Esquerdo pressionado'); break;
+                        case 1: console.log('Centro pressionado'); break;
+                        case 2: console.log('Direito pressionado'); break;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

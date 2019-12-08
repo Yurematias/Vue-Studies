@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- escrita verbosa -->
+        <a v-bind:href="link">Link GitHub</a>
+        <!-- é possível escrever o data binding bem menor -->
+        <!-- basta utilizar somente os : que e o Vue entende que é v-bind: -->
+        <a :href="link">Link GitHub</a>
+        <!--  é possível também diminuir a escrita de eventos -->
+        <!--  o v-on é escrito normalmente com v-on -->
+        <button v-on:click="getMsg">Click-me</button>
+        <!-- v-on: pode ser reduzido á @ -->
+        <button @click="getMsg">Click-me</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                link: 'http://github.com/yurematias'
+            },
+            methods: {
+                getMsg() {
+                    alert('Hello');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
