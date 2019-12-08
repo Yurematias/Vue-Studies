@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-on:keyup="printKey" placeholder="qualquer tecla">
+        </div>
+        <div>
+            <input type="text" v-on:keyup.enter="printKey" placeholder="somente enter">
+        </div>
+        <div>
+            <input type="text" v-on:keyup.enter.esc="printKey" placeholder="enter ou esc">
+        </div>
+        <div>
+            <input type="text" v-on:keyup.a.e.i.o.u="printKey" placeholder="vogais">
+        </div>
+        <div>
+            <input type="text" v-on:keyup.ctrl.enter.exact="printKey" placeholder="ctrl+enter">
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            methods: {
+                printKey(evt) {
+                    alert(evt.key + ' pressionada');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
