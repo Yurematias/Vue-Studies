@@ -20,6 +20,7 @@
         <!-- computed properties são métodos, mas não precisamos do () -->
         <!-- são chamadas como se fosse atributos comuns -->
         <h1>{{ nomeInvertido}}</h1>
+        Press enter to confirm: <input @keyup.enter="alterarNome" type="text">
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script type="text/javascript">
@@ -27,6 +28,11 @@
             el: '#app',
             data: {
                 nome: 'Yure Matias'
+            },
+            methods: {
+                alterarNome(evt) {
+                    this.nome = evt.target.value;
+                }
             },
             computed: {
                 // computed properties devem ser sincronas 
