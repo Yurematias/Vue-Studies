@@ -1,0 +1,19 @@
+é sempre preferível usar computed ao invés de method embora ambos tenham o mesmo 
+resultado visual.
+
+isso porque o computed é mais performatico
+
+o computed tem dependencia de uma propriedade especifica, ou seja
+só é renderizado quando aquela propriedade é alterada.
+
+diferente do method onde a cada nova renderização de qualquer componente 
+o método é chamado
+
+exemplo:
+
+method mexe com o atributo nome 
+se o atributo idade for alterado o método é novamente chamado 
+
+no computed não 
+o computed só é chamado se a dependencia dele for 
+podendo qualquer outro componente ser alterado sem mecher nele 

@@ -34,6 +34,9 @@
                     this.nome = evt.target.value;
                 }
             },
+            // as computed properties tem dependencias em cima das propriedades 
+            // em que elas trabalham, desta forma, quando a proprieadae é alterada 
+            // a computed é novamente calculada 
             computed: {
                 // computed properties devem ser sincronas 
                 // e retornar obrigatoriamente alguma coisa
