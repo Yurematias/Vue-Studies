@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- o método clickMsg será chamado duas vezes se clicar no botão da forma que está -->
+    <!-- isso porque o onclick da div é propagado para o botão -->
+    <!-- no JavaScript vanilla isso é resolvido usando o stop propagation -->
+    <!-- no Vue há um jeito mais simples de resolver -->
+    <!-- basta usar o .stop depois do evento -->
+    <div id="app">
+        <div v-on:click="clickMsg('div clicada', $event)">
+            <input type="button" v-on:click.stop="clickMsg('botão clicado', $event)">
+        </div>
+        <form>
+            <input type="email" name="" id="">
+            <!-- prevent default do Vue -->
+            <button type="submit" v-on:click="onSubmit">Enviar sem prevent</button>
+            <button type="submit" v-on:click.prevent="onSubmit">Enviar com prevent</button>
+        </form>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            methods: {
+                clickMsg(name, evt) {
+                    // evt.stopPropagation();
+                    console.log(name);
+                },
+                onSubmit() {
+                    console.log('enviado');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
