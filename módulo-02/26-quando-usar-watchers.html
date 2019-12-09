@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+        <button @click="changeName">Tap here</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Yure Matias'
+            },
+            methods: {
+                changeName() {
+                    this.name = 'Matias Yure';
+                }
+            },
+            // o watch é indicado em funções assincronas 
+            // ou quando não precisa retornar nada 
+            // uma vez que computed são sempre getters
+            watch: {
+                name(newName, oldName) {
+                    setTimeout(() => {
+                        this.name = 'Changed by a watch'
+                    }, 500);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
