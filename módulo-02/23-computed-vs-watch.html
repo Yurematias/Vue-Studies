@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-text="completeName"></p>
+        <button @click="changeName">inverter</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Yure',
+                lastName: 'Matias',
+                // completeName: 'Yure Matias'
+            },
+            methods: {
+                changeName() {
+                    this.firstName = this.firstName == 'Yure' ? 'Matias' : 'Yure';
+                    this.lastName = this.lastName == 'Matias' ? 'Yure' : 'Matias';
+                }
+            },
+            // watchers são muito mais verbosos que computed 
+            // assim é melhor usar os computer properties 
+            // o exemplo abaixo adiciona um watcher para modificar a propriedade completeName 
+            // se o firstName for modificado o completeName muda
+            // se o lastName for modificado o completeName muda 
+            // esses métodos recebem dois parâmetros são eles 
+            // o novo valor para a propriedade e o velho  
+            // watch: {
+            //     firstName(newFirstName, oldFirstName) {
+            //         this.completeName = newFirstName + ' ' + this.lastName;
+            //     },
+            //     lastName(newLastName, oldLastName) {
+            //         this.completeName = this.firstName + ' ' + newLastName;
+            //     }
+            // },
+            // tudo que foi feito a cima é bem melhor escrito e simplificado em uma 
+            // computed propertie assim como no exemplo abaixo que faz a mesma coisa 
+            // mas muito mais simples 
+            computed: {
+                completeName() {
+                    return `${this.firstName} ${this.lastName}`;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
