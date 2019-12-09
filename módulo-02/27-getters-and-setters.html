@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{fullName}}</p>
+        <input type="text" @keyup.enter="setFullName">
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Yure',
+                lastName: 'Matias'
+            },
+            methods: {
+                setFullName(evt) {
+                    this.fullName = evt.target.value;
+                }
+            },
+            // o computed por padrão funciona como um getter 
+            // ou seja só retorna valores, mas é possível usar como setter também 
+            // para isso basta fazer do computed um objeto dentro dele, ao invés de um método 
+            // esse objeto tem os dois métodos get e set 
+            // o set neste caso é usado para setar as duas propriedades ao mesmo tempo 
+            computed: {
+                fullName: {
+                    get() {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    set(newName) {
+                        // quebrar string do nome em duas 
+                        // a primeira é o nome normal 
+                        // a segunda é o ultimo nome 
+                        newName = newName.split(' ');
+                        this.firstName = newName[0];
+                        this.lastName = newName[newName.length - 1];
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
