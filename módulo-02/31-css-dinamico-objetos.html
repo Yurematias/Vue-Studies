@@ -52,7 +52,8 @@
         <div class="box" :class="classes" @click="invertClasses"></div>
         <div class="box" :class="styles"></div>
         <button @click="changeColor">mudar cor</button>
-        <button @click="changeForm">mudarforma</button>
+        <button @click="changeForm">mudar forma</button>
+        <button @click="changeBorder">mudar borda</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script type="text/javascript">
@@ -70,6 +71,9 @@
                 changeForm() {
                     this.form = !this.form;
                 },
+                changeBorder() {
+                    this.changeBorder = !this.changeBorder;
+                },
                 invertClasses() {
                     this.applyClass = !this.applyClass;
                 }
@@ -78,7 +82,8 @@
                 styles() {
                     return {
                         green: this.color,
-                        'circle-box': this.form
+                        'circle-box': this.form,
+                        'border-black': this.form
                     }
                 },
                 classes() {
