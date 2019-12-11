@@ -50,20 +50,37 @@
 <body>
     <div id="appVue">
         <div class="box" :class="classes" @click="invertClasses"></div>
+        <div class="box" :class="styles"></div>
+        <button @click="changeColor">mudar cor</button>
+        <button @click="changeForm">mudarforma</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script type="text/javascript">
         new Vue({
             el: '#appVue',
             data: {
-                applyClass: false
+                applyClass: false,
+                color: true,
+                form: true
             },
             methods: {
+                changeColor() {
+                    this.color = !this.color;
+                },
+                changeForm() {
+                    this.form = !this.form;
+                },
                 invertClasses() {
                     this.applyClass = !this.applyClass;
                 }
             },
             computed: {
+                styles() {
+                    return {
+                        green: this.color,
+                        'circle-box': this.form
+                    }
+                },
                 classes() {
                     return {
                         red: this.applyClass,
@@ -72,7 +89,7 @@
                     };
                 }
             }
-        });
+        }); 
     </script>
 </body>
 
