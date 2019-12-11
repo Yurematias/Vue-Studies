@@ -49,6 +49,11 @@
 
 <body>
     <div id="appVue">
+        <!-- o v-model é a diretiva onde é possível mudar o valor diretamente -->
+        <!-- pelo input sem precisar do v-on:input ou @input -->
+        <!-- desta forma quando o usuario digita no input o valor -->
+        <!-- automaticamente vai pro atributo no objeto data -->
+        <!-- reagindo em qualquer componente que use esse atributo -->
         <input type="text" v-model="nomeClasse">
         <div :class="nomeClasse" class="box">
 
