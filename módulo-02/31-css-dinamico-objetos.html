@@ -62,7 +62,8 @@
             data: {
                 applyClass: false,
                 color: true,
-                form: true
+                form: true,
+                border: true
             },
             methods: {
                 changeColor() {
@@ -72,7 +73,7 @@
                     this.form = !this.form;
                 },
                 changeBorder() {
-                    this.changeBorder = !this.changeBorder;
+                    this.border = !this.border;
                 },
                 invertClasses() {
                     this.applyClass = !this.applyClass;
@@ -83,7 +84,7 @@
                     return {
                         green: this.color,
                         'circle-box': this.form,
-                        'border-black': this.form
+                        'border-black': this.border
                     }
                 },
                 classes() {
