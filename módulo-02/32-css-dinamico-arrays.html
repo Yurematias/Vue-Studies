@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: gray;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            color: aliceblue;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .border-dotted {
+            border-style: dotted;
+        }
+
+        .border-black {
+            border-color: black;
+            border-width: 3px;
+        }
+
+        .circle-box {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="appVue">
+        <!-- é possível passar um array para o :class no qual cada um de seus elementos -->
+        <!-- pode ser um objeto com os estilos -->
+        <div class="box" :class="[styles, {'border-black': true, 'border-dotted': true}]"></div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#appVue',
+            data: {
+                color: true,
+                form: true
+            },
+            computed: {
+                styles() {
+                    return {
+                        red: this.color,
+                        'circle-box': this.form
+                    }
+                }
+            }
+        }); 
+    </script>
+</body>
+
+</html>
