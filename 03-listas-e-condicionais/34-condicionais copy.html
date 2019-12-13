@@ -10,6 +10,8 @@
 
 <body>
     <div id="vueApp">
+        <!-- a renderização condicional do Vue remove realmente o elemento da DOM -->
+        <!-- não apenas o deixa oculto -->
         <input v-model="number" type="number" :min="-100" :max="100">
         <div v-if="!number">
             indefinido

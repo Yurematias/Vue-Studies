@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>exemplo</li>
+            <li>exemplo</li>
+            <li>exemplo</li>
+            <li>exemplo</li>
+            <!-- no exemplo abaixo o div será renderizado junto com os li -->
+            <!-- para evitar esse tipo de coisa ao invés de divs para -->
+            <!-- renderização condicional de grupos utilizasse template -->
+            <!-- o template não aparece na versão final do html -->
+            <!-- funciona semelhantemente as tags vazias no jsx do React <> </> -->
+            <div v-if="show">
+                <li>exemplo dentro da div</li>
+                <li>exemplo dentro da div</li>
+                <li>exemplo dentro da div</li>
+            </div>
+            <template v-if="show">
+                <li>exemplo dentro do template</li>
+                <li>exemplo dentro do template</li>
+            </template>
+        </ul>
+        <button @click="show = !show">PRESS</button>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                show: false
+            }
+        });
+    </script>
+</body>
+
+</html>
