@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Games</h1>
+        <ul>
+            <!-- para acessar o índice basta coloca adicionar o index entre parenteses assim como abaixo s-->
+            <!-- a primeira variavel é o valor do elemento atual e a segunda o índice -->
+            <li v-for="(game, index) of games">{{index}}: {{game}}</li>
+        </ul>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                games: [
+                    'Sekiro Shadows Die Twice',
+                    'The Witcher 3',
+                    'Fallout 4',
+                    'The Elder Scrols IV Skyrim',
+                    'Red Dead Redemption 2',
+                    'Halo 4'
+                ],
+            }
+        }); 
+    </script>
+</body>
+
+</html>
