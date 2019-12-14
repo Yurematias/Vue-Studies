@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Games</h1>
+        <!-- objetos são iterados de forma parecida com os arrays -->
+        <!-- a diferença está em que primeiro se tem o valor, depois a chave e depois o índice -->
+        <!-- chave é o nome do atributo -->
+        <h1>Mostrando apenas os valores</h1>
+        <ul>
+           <li v-for="(value, key, index) of banda">{{value}}</li>
+        </ul>
+        <h1>Mostrando as chaves</h1>
+        <ul>
+           <li v-for="(value, key, index) of banda">{{key}}</li>
+        </ul>
+        <h1>Mostrando os valores. indices e as chaves</h1>
+        <ul>
+           <li v-for="(value, key, index) of banda">{{index}} - {{key}}: {{value}}</li>
+        </ul>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                banda: {
+                    name: 'Slayer',
+                    gender: 'Heavy Metal',
+                    location: 'USA',
+                    someMusics: [
+                        'Rainging Blood',
+                        'World Painted Blood',
+                        'Bloodline',
+                        'Implode',
+                        'South of Heaven'
+                    ]
+                }
+            }
+        }); 
+    </script>
+</body>
+
+</html>
