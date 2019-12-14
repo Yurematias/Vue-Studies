@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- além do v-if o VueJS disponibiliza o v-show -->
+        <!-- que funciona de foma muito parecia -->
+        <!-- a diferença está em que o v-show apenas oculta e mostra o elemento novamente -->
+        <!-- ele manipula o display dos elementos colocando-os pra display: none -->
+        <!-- diferente do v-if que realmente remove o elemento -->
+        <!-- no v-show não há elses, apenas ele mesmo -->
+        <!-- ele também não aceita ser colocado em templates como no v-if -->
+        <button @click="switchUl">{{showString}}</button>
+        <div v-show="show">
+            <ul>
+                <li>exemplo</li>
+                <li>exemplo</li>
+                <li>exemplo</li>
+                <li>exemplo</li>
+                <li>exemplo</li>
+                <li>exemplo</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            methods: {
+                switchUl() {
+                    this.show = !this.show;
+                }
+            },
+            computed: {
+                showString() {
+                    return this.show ? 'ocultar lista' : 'mostrar lista';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
