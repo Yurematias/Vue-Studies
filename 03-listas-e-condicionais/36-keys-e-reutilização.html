@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- o Vue trabalha reaproveitando componentes que já existem para -->
+        <!-- criação de novos componentes -->
+        <!-- no exemplo abaixo o comportamento padrão do Vue é aproveitar as Label -->
+        <!-- mudando somente o conteúdo dela -->
+        <!-- e reaproveitar o input, mudando apenas o placeholder -->
+        <!-- porém as vezes é necessário que o componente seja renderizado -->
+        <!-- do zero, sem qualquer reutilização, o componente pode ser totalmente -->
+        <!-- diferene do outro, para forçar uma renderização do zero -->
+        <!-- precisamos utilizar a propriedade key na tag -->
+        <!-- fazendo isso os componentes serão considerados únicos -->
+        <!-- portando serão renderizados de forma única e do zero, sem reutilização -->
+        <h1>Login</h1>
+        <template v-if="show">
+            <label>Nome de usuário: </label>
+            <input type="text" placeholder="nome de usuario" key="login-user">
+        </template>
+        <template v-else>
+            <label>Email: </label>
+            <input type="text" placeholder="email" key="login-email">
+        </template>
+        <br>
+        <button @click="show = !show">Alternar forma de login</button>
+    </div>
+    <!-- Para aplicações Vue é preciso importar o seguinte CDN: -->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                show: false
+            }
+        });
+    </script>
+</body>
+
+</html>
