@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- ao alterar a ordem de elementos de um array no v-for -->
+        <!-- o comportamento padrão é fazer do jeito mais performático possível -->
+        <!-- assim ele aproveita elementos anteriores e só troca o conteúdo dos que necessitam -->
+        <h1> Experimente trocar a ordem dos elementos enquanto olha pros elementos html no inspetor</h1>
+        <h2> sem key </h2>
+        <ul>
+            <!-- utilizando template para renderizar 2 elementos em cada iteração -->
+            <!-- os elementos div e li serão filhos diretos de ul, uma vez que o template desaparece -->
+            <!-- igual as tags vazias do JSX no React -->
+            <template v-for="prod of products">
+                <li>{{prod.name}}</li>
+                <div>id: {{prod.id}}</div>
+            </template>
+        </ul>
+        <!-- as vezes, para componentes mais complexos é necessário mudar o componente completamente -->
+        <!-- para isso utiliza-se as keys (chaves) -->
+        <!-- com as keys todos elementos são renderizados do zero, sem reaproveitamento -->
+        <!-- Experimente trocar a ordem dos elementos enquanto olha pros elementos html no inspetor -->
+        <h2> com key </h2>
+        <!-- com o key o elemento inteiro é renderizado novamente -->
+        <!-- sem o key só o valor e o resto é reaproveitado, para casos mais simples ele é ideal -->
+        <ul>
+            <template v-for="prod of products" :key="prod.id">
+                <li>{{prod.name}}</li>
+                <div>id: {{prod.id}}</div>
+            </template>
+        </ul>
+
+        <button @click="products = products.reverse()">Inverter produtos</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    {name: 'Bolacha', id: 1},
+                    {name: 'Danone', id: 2},
+                    {name: 'Fubá', id: 3}, 
+                    {name: 'Iogurte', id: 4},
+                    {name: 'Milho', id: 5}
+                ]
+            }
+        }); 
+    </script>
+</body>
+
+</html>
