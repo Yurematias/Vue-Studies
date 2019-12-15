@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- no Vue não é possível atribuir diretamente no array -->
+        <!-- exemplo: products[4] = {name: 'Sapato', id: 1, isFood: false} não é reativo-->
+        <!-- fazer isso não dará certo no VueJS -->
+        <!-- há várias maneias de fazer isso de forma reativa no VueJS -->
+        <!-- no método setProduto abaixo há vários exemplos de como fazer isso de forma correta -->
+             
+        <ul>
+            <li v-for="p of products" v-text="p"></li>
+        </ul>
+        <button @click="setProduct">setar produto</button>
+        <div>
+            <label>Tamanho do array</label>
+            <input type="number" @keyup.enter.number="cutArray" placeholder="press enter to confirm">
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    {name: 'Vassoura', id: 0, isFood: false},
+                    {name: 'Bolacha', id: 1, isFood: true},
+                    {name: 'Danone', id: 2, isFood: true},
+                    {name: 'Fubá', id: 3, isFood: true}, 
+                    {name: 'Iogurte', id: 4, isFood: true},
+                    {name: 'Milho', id: 5, isFood: true},
+                    {name: 'Pilha', id: 6, isFood: false},
+                    {name: 'Sandália', id: 7, isFood: false},
+                    {name: 'Bolo', id: 8, isFood: true}
+                ]
+            },
+            computed: {
+                foods() {
+                    return this.products.filter(el => el.isFood);
+                }
+            },
+            methods: {
+                cutArray(evt) {
+                    // o método splice se colocado com apenas o primeiro parametro 
+                    // remove todos elementos a partir do indice selecionado
+                    this.products.splice(evt.target.value);
+                },
+                setProduct() {
+                    // jeito errado
+                    // this.products[4] = {name: 'Sapato', id: 1, isFood: false}
+                
+                    // 1° jeito: usando o método estático de Vue
+
+                    // parâmetros:
+                    // 1° array a ser modificado
+                    // 2° índice do elemento do array a ser substítuido
+                    // 3° novo elemento do array
+                    // Vue.set(this.products, 4, {name: 'Sapato', id: 4, isFood: false});
+
+                    // 2° jeito: usando o método $set da instancia atual do Vue
+
+                    // this.$set(this.products, 4, {name: 'Sapato', id: 4, isFood: false});
+
+                    // 3° jeito: usando JavaScript puro com o método splice
+
+                    // o splice é um método para adicionar um elemento enquanto remove 
+                    // outros em um array
+                    // obs: não confundir com o método slice que corta o array
+
+                    // parâmetros:
+                    // 1° índice 
+                    // 2° quantidade de elementos a serem removidos 
+                    // 3° novo elemento do array
+                    this.products.splice(4, 1, {name: 'Sapato', id: 4, isFood: false}); 
+                }
+            },
+        }); 
+    </script>
+</body>
+
+</html>
