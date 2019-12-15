@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- é possível usar o v-for junto com o v-if para filtrar os resultados na amostragem -->
+        <h1>v-if junto com v-for</h1>
+        <ul>
+            <li v-for="prod of products" v-if="prod.isFood">{{prod.name}}</li>
+        </ul>
+        <!-- no entanto usando da forma usada acima os elementos embora não apareçam -->
+        <!-- eles são renderizados e logo após isso comentados -->
+        <!-- fazendo com que se tenha um custo computacional relacionado a isso -->
+        <!-- para uma performance melhor talvez seja melhor o uso de uma computed -->
+        <!-- para filtrar o conteúdo -->
+        <h1>Com computed property</h1>
+        <ul>
+            <li v-for="prod of foods">{{prod.name}}</li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    {name: 'Vassoura', id: 0, isFood: false},
+                    {name: 'Bolacha', id: 1, isFood: true},
+                    {name: 'Danone', id: 2, isFood: true},
+                    {name: 'Fubá', id: 3, isFood: true}, 
+                    {name: 'Iogurte', id: 4, isFood: true},
+                    {name: 'Milho', id: 5, isFood: true},
+                    {name: 'Pilha', id: 6, isFood: false},
+                    {name: 'Sandália', id: 7, isFood: false},
+                    {name: 'Bolo', id: 8, isFood: true}
+                ]
+            },
+            computed: {
+                foods() {
+                    return this.products.filter(el => el.isFood);
+                }
+            },
+        }); 
+    </script>
+</body>
+
+</html>
