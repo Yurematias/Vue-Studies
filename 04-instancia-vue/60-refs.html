@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">  
+        <!-- o VueJS tem um objeto chamado $refs -->
+        <!-- nele há todos os elementos que colocamos um ref -->
+        <!-- é possível acessar esses elementos no código Vue com -->
+        <!-- this.$refs.nomeDoRef -->
+        <!-- assim é possível manipular todos as suas propriedades -->
+        <!-- obs: ref não é diretiva, é uma propriedade padrão -->
+        <div ref="text">{{title}}</div>
+        <button @click="changeText">modificar</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#app',
+            data: { title: ''},
+            methods: {
+                changeText() {
+                    this.$refs.text.innerText = 'mudou'
+                    // ao mecher no inner text de um elemento desta forma no Vue
+                    // o template que estiver dentro do Vue não é perdido exemplo:
+                    // se o elemento tiver um {{algumaVariavel}} dentro do elemento 
+                    // ainda que o innerText ou innerHTML for modificado
+                    // o template {{}} continua da mesma forma sendo reativo do mesmo jeito
+                }   
+            }
+        }); 
+    </script>
+</body>
+
+</html>
