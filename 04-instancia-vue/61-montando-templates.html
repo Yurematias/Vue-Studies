@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="appVue">{{example}}</div>
+    <div id="appVue2"></div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+
+    // forma de referenciar a div do Vue sem o el 
+    const vueModel = new Vue({
+        data: {example: 'this is an example'}
+    });
+    vueModel.$mount('#appVue');
+
+    // forma de referenciar a div do Vue sem o el deixando o template do html vazio 
+    // dessa forma o atributo template define as tags da div
+    const vueModel2 = new Vue({
+        data: {example: 'a void vue instance using template'},
+        template: `
+            <ul>
+                <li>{{example}}</li>
+                <li>{{example}}</li>
+                <li>{{example}}</li>
+                <li>{{example}}</li>
+            </ul>
+        `
+    });
+    vueModel2.$mount('#appVue2');
+    // forma verbosa de fazer 
+    // document.getElementById('#appVue2').appendChild(vueModel2.$el);
+    </script>
+</body>
+
+</html>
