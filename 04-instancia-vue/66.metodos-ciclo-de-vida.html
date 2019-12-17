@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="appVue">
+        <h1>{{title}}</h1>
+        <button @click="changeText">Clique para mudar</button>
+        <button @click="destroyInstance">Destruir intância</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        const vm = new Vue({
+            data: {
+                title: 'VueJS course'
+            },
+            methods: {
+                changeText() {
+                    this.title = 'this is the title modified'
+                },
+                destroyInstance() {
+                    // método para destruir a instancia do Vue
+                    // após isso não é possível mais usar nada do Vue
+                    this.$destroy();
+                }
+            },
+            // métodos de ciclo de vida em ordem 
+            beforeCreate() {
+                console.log('1 - beforeCreate');
+            },
+            created() {
+                console.log('2 - created');
+            },
+            beforeMount() {
+                console.log('3 - beforeMount');
+            },
+            mounted() {
+                console.log('4 - mounted');
+            },
+            // o Vue é inteligente para saber se deve ou não 
+            // atualizar, ou seja se tentar atribuir o mesmo valor a 
+            // um atributo de data, o Vue percebe que não precisa atualizar
+            beforeUpdate() {
+                console.log('5 - beforeUpdate');
+            },
+            updated() {
+                console.log('6 - updated');
+            },
+            beforeDestroy() {
+                console.log('7 - beforeDestroy');
+            },
+            destroyed() {
+                console.log('8 - destroyed');
+            },
+        });
+        // ao executar o primeiro lifestylehook a ser executado 
+        // é o create, que é quando a instancia Vue é executada
+        // depois de 5 segundos (nesse caso) que é que a instancia é montada
+        // e assim o beforeMount e mounted são executados 
+        setTimeout(() => vm.$mount('#appVue'), 5000);
+    </script>
+</body>
+
+</html>
