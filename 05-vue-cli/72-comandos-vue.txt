@@ -1,0 +1,8 @@
+--- criar aplicação ---
+vue create nome_da_aplicação
+
+--- compilar código e executar ---
+npm run serve
+
+--- compilar vestão de desenvolvimento com live reload
+npm start 
