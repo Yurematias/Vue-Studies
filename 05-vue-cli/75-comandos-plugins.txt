@@ -1,0 +1,5 @@
+--- comandos para plugins de autoria original do Vue
+vue add @vue/nomecomando
+
+--- comando para plugin da comunidade exemplo
+vue add vuetify
