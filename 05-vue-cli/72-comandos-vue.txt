@@ -1,8 +1,14 @@
 --- criar aplicação ---
 vue create nome_da_aplicação
 
---- compilar código e executar em versão desenvolvimento ---
-npm run 
+--- instalar preprocessadores css Sass
+npm i -D sass-loader node-sass
 
---- compilar código em versão de produção
-npm start 
+--- rodar aplicação em versão desenvolvimento com live reload
+npm run serve
+
+--- gerar build da aplicação
+npm run build
+
+--- gerear build da aplicação em versão de desenvolvimento
+npm run build --mode development
