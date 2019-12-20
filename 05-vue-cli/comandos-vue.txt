@@ -12,3 +12,6 @@ npm run build
 
 --- gerear build da aplicação em versão de desenvolvimento
 npm run build --mode development
+
+--- usar o lint para correção de erros
+npm run lint
