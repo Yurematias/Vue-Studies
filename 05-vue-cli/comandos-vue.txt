@@ -15,3 +15,18 @@ npm run build --mode development
 
 --- usar o lint para correção de erros
 npm run lint
+
+
+***************** AULA 80 ***************************************************************
+
+--- baixar e instalar o pacote do Vue para rodar componentes sem a criação de um projeto
+npm i -g @vue/cli-service-global
+
+--- após baixar e instalar os pacotes anteriores é possível rodar em desenvolvimento e 
+gerar o build da aplicação com os comandos 
+
+vue serve nomeArquivo
+
+vue build nomeArquivo
+
+*****************************************************************************************
