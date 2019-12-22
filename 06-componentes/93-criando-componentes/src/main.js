@@ -5,14 +5,15 @@
 
 import Vue from 'vue'
 import App from './components/App.vue'
-import AppContador from './components/AppContador.vue'
 
 // definindo que tags com app-contador presente no componente principal que neste caso é o App
 // referencia o componente AppContador
-Vue.component('app-contador', AppContador);
+// essa é a forma global de definir o componente
+// Vue.component('app-contador', AppContador);
+
 
 new Vue({
-  el: '#app',
+  // el: '#app',
   // função para renderizar o componente principal
   render: h => h(App),
-});
+}).$mount('#app');

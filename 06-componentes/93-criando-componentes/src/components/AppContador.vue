@@ -4,6 +4,7 @@
 // e style para definir estilos css para o template 
 <template>
     <div>
+        <ym-ameno/>
         <h1>Clicado {{count}} vezes</h1>
         <h2>Dobro: {{double}}</h2>
         <button @click="increment">incrementar</button>
@@ -12,7 +13,14 @@
 // o bloco script é a instancia Vue em si 
 // nele definimos o data, computed, methods, watchers e etc.
 <script>
+import Ameno from './Ameno.vue'
+
 export default {
+    // ao usar um componente criado em um arquivo
+    // é necessário colocalo na instancia Vue no atributo components
+    components: {
+        'ym-ameno': Ameno
+    },
     data() {
         return {
             count: 0
