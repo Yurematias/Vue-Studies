@@ -31,11 +31,7 @@ export default {
         {title: 'El Camino', id: 0},
         {title: 'Coringa', id: 1},
         {title: 'O Senhor dos Aneis', id: 2},
-        {title: 'Django Livre', id: 3},
-        {title: 'Avatar', id: 4},
-        {title: 'Planeta dos Macacos', id: 5},
-        {title: 'Tropa de Elite', id: 6},
-        {title: 'Star Wars', id: 7}
+        {title: 'Django Livre', id: 3}
       ]
     }
   }
