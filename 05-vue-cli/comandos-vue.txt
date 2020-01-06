@@ -1,3 +1,6 @@
+--- instalar o vue@cli ---
+npm install -g @vue/cli
+
 --- criar aplicação ---
 vue create nome_da_aplicação
 
