@@ -8,7 +8,13 @@
         <!-- para isso colocamos os nomes do atributos no template bem como estão declarados no objeto -->
         <!-- desta forma se colocarmos um v-bind com o objeto chave da iteração, todos os atributos são -->
         <!-- passados automaticamente como props para o componente. Este é um modo atalho para passagem de props como objeto -->
-        <FilmesListaIten v-for="movie of moviesList" :key="movie.id" v-bind="movie" />
+
+        <!-- esse componente abaixo possui um ouvidor para um evento personalido que vem do componente filho FilmesListaIten -->
+        <!-- neste caso, assim que o evento title for acionado no filho vai ser atribuido na atributo selectedMovie desta instancia -->
+        <!-- o valor passado no componente filho -->
+        <!-- isto para todas as vezes que selecionar um filme, ele ser passado para o FilmeListaInfo e exibir seu devido nome -->
+
+        <FilmesListaIten v-for="movie of moviesList" :key="movie.id" v-bind="movie" @title="selectedMovie = $event"/>
         <!-- quando o objeto é passado via v-bind todos atributos que coincidem o nome com a prop do componente -->
         <!-- serão passados, entretanto aqueles que não tiverem uma prop correspondente -->
         <!-- passarão para o DOM final na forma de propriedade html -->
@@ -19,7 +25,7 @@
     </div>
     <!-- coluna 2 -->
     <div class="col-4">
-      <FilmesListaItenInfo/>
+      <FilmesListaItenInfo :selectedMovie="selectedMovie"/>
     </div>
   </div>
 </template>
@@ -36,11 +42,12 @@ export default {
   }, 
   data() {
     return {
+      selectedMovie: 'Por favor selecione um filme',
       moviesList: [
         {title: 'El Camino', id: 0, year: 2019},
         {title: 'Coringa', id: 1, year: 2019},
-        {title: 'O Senhor dos Aneis', id: 2, year: 2012},
-        {title: 'Django Livre', id: 3, year: 2002}
+        {title: 'O Senhor dos Aneis', id: 2, year: 2002},
+        {title: 'Django Livre', id: 3, year: 2012}
       ]
     }
   }

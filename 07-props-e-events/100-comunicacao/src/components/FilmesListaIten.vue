@@ -2,7 +2,7 @@
     <ul>
         <li class="list-group-item">
             <span>{{title}} | {{year}}</span>
-            <button class="btn btn-success float-right">Selecionar</button>
+            <button class="btn btn-success float-right" @click="emitSelected">Selecionar</button>
         </li>
     </ul>
 </template>
@@ -53,6 +53,17 @@ export default {
             validator(year) {
                 return year > 1850 && year < 2021;
             }
+        }
+    },
+    // para envio de propriedades de um componente filho para um componente pai 
+    // usa-se os event emiters do VueJS 
+    // para isso usamos o método emit 
+    // que toda instancia Vue tem 
+    // o primeiro parametro é o nome do evento 
+    // o segundo é o valor a ser passado, o envio funciona da mesma forma que o Socket.io 
+    methods: {
+        emitSelected() {
+            this.$emit('title', this.title);
         }
     },
     // setando este atributo como falso os atributos passados no objeto do FilmesLista não passarão a ser 
