@@ -14,7 +14,8 @@
         <!-- o valor passado no componente filho -->
         <!-- isto para todas as vezes que selecionar um filme, ele ser passado para o FilmeListaInfo e exibir seu devido nome -->
 
-        <FilmesListaIten v-for="movie of moviesList" :key="movie.id" v-bind="movie" @title="selectedMovie = $event"/>
+        <!-- ao passar uma classe para o componente desta forma, a classe será passada para o elemento pai no template deste componente -->
+        <FilmesListaIten :class="movieIsSelected(movie)" v-for="movie of moviesList" :key="movie.id" v-bind="movie" @title="selectedMovie = $event"/>
         <!-- quando o objeto é passado via v-bind todos atributos que coincidem o nome com a prop do componente -->
         <!-- serão passados, entretanto aqueles que não tiverem uma prop correspondente -->
         <!-- passarão para o DOM final na forma de propriedade html -->
@@ -49,6 +50,13 @@ export default {
         {title: 'O Senhor dos Aneis', id: 2, year: 2002},
         {title: 'Django Livre', id: 3, year: 2012}
       ]
+    }
+  },
+  methods: {
+    movieIsSelected(movie) {
+      return {
+        active: movie.title == this.selectedMovie
+      }
     }
   }
 }

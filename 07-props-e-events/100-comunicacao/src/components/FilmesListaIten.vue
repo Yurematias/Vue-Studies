@@ -1,10 +1,8 @@
 <template>
-    <ul>
-        <li class="list-group-item">
-            <span>{{title}} | {{year}}</span>
-            <button class="btn btn-success float-right" @click="emitSelected">Selecionar</button>
-        </li>
-    </ul>
+    <li class="list-group-item">
+        <span>{{title}} | {{year}}</span>
+        <button class="btn btn-success float-right" @click="emitSelected">Selecionar</button>
+    </li>
 </template>
 
 <script>
