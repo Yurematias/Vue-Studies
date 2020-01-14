@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="selectedMovie">
         <h2>Filme selecionado</h2>
         <div class="card">
             <div class="card-body">
@@ -10,9 +10,19 @@
     </div>
 </template>
 <script>
+
+import { eventBus } from '../main'
+
 export default {
-    props: {
-        selectedMovie: String
-    }
+    data() {
+        return {
+            selectedMovie: undefined
+        }
+    },
+    created() {
+        eventBus.$on('title', (movie) => {
+            this.selectedMovie = movie;
+        })
+    },
 }
 </script>

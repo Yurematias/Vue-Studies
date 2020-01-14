@@ -15,7 +15,7 @@
         <!-- isto para todas as vezes que selecionar um filme, ele ser passado para o FilmeListaInfo e exibir seu devido nome -->
 
         <!-- ao passar uma classe para o componente desta forma, a classe será passada para o elemento pai no template deste componente -->
-        <FilmesListaIten :class="movieIsSelected(movie)" v-for="movie of moviesList" :key="movie.id" v-bind="movie" @title="selectedMovie = $event"/>
+        <FilmesListaIten v-for="movie of moviesList" :key="movie.id" v-bind="movie" @title="selectedMovie = $event"/>
         <!-- quando o objeto é passado via v-bind todos atributos que coincidem o nome com a prop do componente -->
         <!-- serão passados, entretanto aqueles que não tiverem uma prop correspondente -->
         <!-- passarão para o DOM final na forma de propriedade html -->
@@ -26,7 +26,7 @@
     </div>
     <!-- coluna 2 -->
     <div class="col-4">
-      <FilmesListaItenInfo :selectedMovie="selectedMovie"/>
+      <FilmesListaItenInfo />
     </div>
   </div>
 </template>
@@ -43,7 +43,6 @@ export default {
   }, 
   data() {
     return {
-      selectedMovie: 'Por favor selecione um filme',
       moviesList: [
         {title: 'El Camino', id: 0, year: 2019},
         {title: 'Coringa', id: 1, year: 2019},
@@ -52,12 +51,5 @@ export default {
       ]
     }
   },
-  methods: {
-    movieIsSelected(movie) {
-      return {
-        active: movie.title == this.selectedMovie
-      }
-    }
-  }
 }
 </script>

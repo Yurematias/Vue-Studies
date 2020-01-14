@@ -6,6 +6,9 @@
 </template>
 
 <script>
+
+import  { eventBus } from '../main'
+
 export default {
     // é possível definir props sem tipo especificado 
     // ou com tipo especificado
@@ -61,7 +64,12 @@ export default {
     // o segundo é o valor a ser passado, o envio funciona da mesma forma que o Socket.io 
     methods: {
         emitSelected() {
-            this.$emit('title', this.title);
+            // na forma abaixo essa instancia vue envia a prop para o componente pai 
+            // this.$emit('title', this.title);
+
+            // com event bus é poissivel mandar diretamente para qualquer componente 
+            // seja ele de qualquer parentesco
+            eventBus.$emit('title', this.title);
         }
     },
     // setando este atributo como falso os atributos passados no objeto do FilmesLista não passarão a ser 
