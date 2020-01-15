@@ -27,6 +27,7 @@
     <!-- coluna 2 -->
     <div class="col-4">
       <FilmesListaItenInfo />
+      <FilmesListaItenEditar />
     </div>
   </div>
 </template>
@@ -35,11 +36,13 @@
 
 import FilmesListaIten from './FilmesListaIten.vue'
 import FilmesListaItenInfo from './FilmesListaItenInfo.vue'
+import FilmesListaItenEditar from './FilmesListaItenEditar.vue'
 
 export default {
   components: {
     FilmesListaIten,
-    FilmesListaItenInfo
+    FilmesListaItenInfo,
+    FilmesListaItenEditar
   }, 
   data() {
     return {
@@ -48,8 +51,8 @@ export default {
         {title: 'Coringa', id: 1, year: 2019},
         {title: 'O Senhor dos Aneis', id: 2, year: 2002},
         {title: 'Django Livre', id: 3, year: 2012}
-      ]
+      ],
     }
-  },
+  }
 }
 </script>

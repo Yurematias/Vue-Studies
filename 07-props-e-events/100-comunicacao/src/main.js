@@ -9,7 +9,13 @@ Vue.config.productionTip = false
 // o event bus serve para evitar esse tipo de coisa
 // trata-se de uma instancia Vue sem mandar nada como construtor
 // podemos usala em qualquer lugar da aplicação se colocada no main e for devidamente importada nos componentes
-export const eventBus = new Vue();
+export const eventBus = new Vue({
+  data() {
+    return {
+      currentMovie: {}
+    }
+  }
+});
 
 new Vue({
   render: h => h(App),
