@@ -6,6 +6,20 @@
     <!-- este conteúdo aparecerá -->
     <Post> 
       <p>este é o conteúdo passado para dentro do slot no componente Post</p>
+      <!-- usando template para nao ser renderizado no DOM final -->
+      <template slot="header">
+        <p>This is the Header</p>
+      </template>
+      <template slot="content">
+        <p>
+          <strong>This </strong>is the main content
+        </p>
+      </template>
+      <template slot="footer">
+        <p>
+         This is the footer
+        </p>
+      </template>
     </Post>  
   </div>
 </template>
