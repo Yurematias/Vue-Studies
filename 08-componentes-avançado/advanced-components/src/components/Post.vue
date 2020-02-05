@@ -11,6 +11,10 @@
         <slot name="header"/>
         <slot name="content"/>
         <slot name="footer"/>
+        <!-- é possível definir um conteúdo default para um slot -->
+        <slot name="testWithDefault">
+            <p>este é o conteúdo padrão do slot</p>
+        </slot>
     </div>
 </template>
 

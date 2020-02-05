@@ -20,6 +20,9 @@
          This is the footer
         </p>
       </template>
+      <template slot="testWithDefault">
+        Este conteúdo vai sobrepor o padrão
+      </template>
     </Post>  
   </div>
 </template>
